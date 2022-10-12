@@ -1,3 +1,5 @@
+# Самый примитивный вариант. Начало. Телефонная книга версия. 1.0
+
 contacts = {
     'Алина': '+79205131072',
     'Марина': '+79205131073',
@@ -7,3 +9,56 @@ contacts = {
 a = str(input("Введите имя: "))
 print(a, 'phone number', contacts[a])
 print(f"Сейчас в телефонной книге {len(contacts)} контакта")
+
+# Продолжение.
+# Самый примитивный вариант. Телефонная книга. Версия 1.1
+
+book = {'Алина': '+79205131072',
+        'Марина': '+79205131073',
+        'Таня': '+79205131074',
+        'Юля': '+79205131075', }
+e = " "
+x = 0
+control = 0
+while control == 0:
+    a = int(input("""0 - добавить контакт
+1 - просмотреть контакты
+2 - поиск контакта по имени
+3 - поиск контакта по номеру
+4 - удалить контакт    """))
+    if a == 1:
+        b = book.keys()
+        b = list(b)
+        b.sort()
+        for key in b:
+            print(key + '-' + str(book[key]))
+
+    elif a == 0:
+        e = input("""Имя контакта    """)
+        x = int(input("""Номер контакта   """))
+        book[e] = x
+    elif a == 2:
+        e = input("""Имя контакта    """)
+        if e in book:
+            print(book[e])
+        else:
+            print("Такого контакта нет")
+    elif a == 3:
+        x = int(input("""Номер контакта    """))
+        mirror = dict(zip(book.values(), book.keys()))
+        if x in mirror:
+            print(mirror[x])
+        else:
+            print("Такого контакта нет")
+    elif a == 4:
+        e = input("""Имя контакта    """)
+        if e in book:
+            del book[e]
+        else:
+            print("Такого контакта нет")
+    else:
+        print("Что-то совсем пошло не так")
+
+        break
+        
+   # to be continued
